@@ -17,7 +17,7 @@
     + 团队：2-3人，一人作为 master 创建程序框架，其他人 fork 该项目，所有人同时开发。团队 不能少于 2 人
     + 时间：两周完成
 
--项目目录
+- 项目目录
     + cmd ：存放命令实现代码
     + entity ：存放 User 和 Meeting 对象读写与处理逻辑
     + 其他目录 ： 自由添加
@@ -33,8 +33,7 @@
     5.如时间富余，请完成 User 和 Meeting 实体 json 文件读写
 
 ### 思考
-
-    假设你要建立项目 testcobra，你必须建立在 $GOPATH\src\$your_git_account\$repo\testcobra 目录下，才能正常实现协作。采用 golang 术语，$GOPATH\src\$your_git_account\$repo\ 是你当前的 工作区 
+    假设你要建立项目 testcobra，你必须建立在 $GOPATH\src\$your_git_account\$repo\testcobra 目录下，才能正常实现协作。采用golang术语，$GOPATH\src\$your_git_account\$repo\ 是你当前的 工作区 
 
     问题：如果你的项目不能公开代码，甚至不能使用 github，如何实现多人协作呢？
 
@@ -79,8 +78,7 @@
 
 ### 创建会议
 
-    1.已登录的用户可以添加一个新会议到其议程安排中。会议可以在多个已注册
-用户间举行，不允许包含未注册用户。添加会议时提供的信息应包括：
+    1.已登录的用户可以添加一个新会议到其议程安排中。会议可以在多个已注册用户间举行，不允许包含未注册用户。添加会议时提供的信息应包括：
         + 会议主题(title)（在会议列表中具有唯一性）
         + 会议参与者(participator)
         + 会议起始时间(start time)
