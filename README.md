@@ -33,7 +33,8 @@
     5 如时间富余，请完成 User 和 Meeting 实体 json 文件读写
 
 ### 思考
-    假设你要建立项目testcobra，你必须建立在 $GOPATH\src\$your_git_account\$repo\testcobra目录下，才能正常实现协作。采用golang术语，$GOPATH\src\$your_git_account\$repo\ 是你当前的工作区
+    假设你要建立项目testcobra，你必须建立在 $GOPATH\src\$your_git_account\$repo\testcobra目录下，才能正常实现协作。
+    采用golang术语，$GOPATH\src\$your_git_account\$repo\ 是你当前的工作区
     问题：如果你的项目不能公开代码，甚至不能使用 github，如何实现多人协作呢？
 
 
@@ -72,7 +73,8 @@
         + 以该用户为 参与者 的会议将从 参与者 列表中移除该用户。若因此造成会议 参与者 人数为0，则会议也将被删除。
 
 ### 创建会议
-    1 已登录的用户可以添加一个新会议到其议程安排中。会议可以在多个已注册用户间举行，不允许包含未注册用户。添加会议时提供的信息应包括：
+    1 已登录的用户可以添加一个新会议到其议程安排中。会议可以在多个已注册用户间举行，不允许包含未注册用户。
+      添加会议时提供的信息应包括：
         + 会议主题(title)（在会议列表中具有唯一性）
         + 会议参与者(participator)
         + 会议起始时间(start time)
