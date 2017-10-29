@@ -9,6 +9,7 @@ type Meeting struct {
 	End string
 }
 
+//the example of start and end: 2017-10-20T19:00
 func (meeting *Meeting) Init(title string, sponsor string, 
 	pariticipators []string, start string, end string) {
 	meeting.Title = title

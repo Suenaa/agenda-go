@@ -88,36 +88,23 @@ func (date *Date) Init(st string)
 
 func (date Date) GetYear() int 
 
-func (date *Date) SetYear(year int) 
-
-//待修改
-func (date Date) GetMonth() time.Month 
-
-func (date *Date) SetMonth(month int) 
+//month is like January, March and so on.
+func (date Date) GetMonth() string 
 
 func (date Date) GetDay() int
 
-func (date *Date) SetDay(day int)
-
 func (date Date) GetHour() int 
 
-func (date *Date) SetHour(hour int) 
-
 func (date Date) GetMinute() int 
-
-func (date *Date) SetMinute(minute int) 
 
 func (date Date)IsEqual(other Date) bool
 
 func (date Date)IsAfter(other Date) bool 
 
-//待修改
-func (date Date)IsValid() bool 
-
-//待修改
+//output is like: 2017-10-20 19:00
 func (date Date)DateToString() string 
 
-//待修改
+//the example of string: 2017-10-20T19:00
 func StringToDate(date string) (time.Time, error) 
 
 ```

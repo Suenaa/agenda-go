@@ -9,6 +9,7 @@ type Date struct {
 	Time time.Time
 }
 
+//the example of st: 2017-10-20T19:00
 func (date *Date) Init(st string) {
 	t, err := StringToDate(st)
 	if err == nil {
@@ -22,42 +23,24 @@ func (date Date) GetYear() int {
 	return date.Time.Year()
 }
 
-func (date *Date) SetYear(year int) {
-	//date.Time.Year = year
+//month is like January, March and so on
+func (date Date) GetMonth() string {
+	return date.Time.Month().String()
 }
 
-//待修改
-func (date Date) GetMonth() time.Month {
-	return date.Time.Month()
-}
-
-func (date *Date) SetMonth(month int) {
-	//date.Time.Month = month
-}
 
 func (date Date) GetDay() int {
 	return date.Time.Day()
-}
-
-func (date *Date) SetDay(day int) {
-	//date.Time.Day = day
 }
 
 func (date Date) GetHour() int {
 	return date.Time.Hour()
 }
 
-func (date *Date) SetHour(hour int) {
-	//date.Time.Hour = hour
-}
-
 func (date Date) GetMinute() int {
 	return date.Time.Minute()
 }
 
-func (date *Date) SetMinute(minute int) {
-	//date.Time.Minute = minute
-}
 
 func (date Date)IsEqual(other Date) bool {
 	return date.Time.Equal(other.Time)
@@ -67,21 +50,13 @@ func (date Date)IsAfter(other Date) bool {
 	return date.Time.Before(other.Time)
 }
 
-//待修改
-func (date Date)IsValid() bool {
-	return false
-}
-
-//
+//output is like: 2017-10-20 19:00
 func (date Date)DateToString() string {
-	return date.Time.String()
+	st := date.Time.String()[0 : 16]
+	return st
 }
 
-//
+//the example of string: 2017-10-20T19:00
 func StringToDate(date string) (time.Time, error) {
-	//time.Parse("2017-10-20 19:00", date)
-	//if (err != nil) {
-	//	return nil
-	//}
-	return time.Parse("2017-10-20 19:00", date)
+	return time.Parse(time.RFC3339, date + ":00Z")
 }
