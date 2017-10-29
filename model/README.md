@@ -30,6 +30,7 @@ func (user *User) SetPhone(phone string)
 
 ## Meeting
 
+```
 type Meeting struct {
 	Title string
 	Sponsor string
