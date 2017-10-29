@@ -5,7 +5,14 @@ type Service struct {
 
 }
 
-//用户注册函数
+
+//启动agenda
+//传入一个service.Service指针
+func StartAgenda(service *Service) (bool, string) {
+  return false,""
+}
+
+//用户注册
 //函数返回一个字符串表示注册信息，
 //比如false+“userName already exits”之类的,或者true+"register successful"
 func (service *Service) UserRegister(userName string, passworld string,
@@ -13,7 +20,7 @@ func (service *Service) UserRegister(userName string, passworld string,
   return false,""
 }
 
-//用户登录函数
+//用户登录
 //返回一个字符串,类似上一个函数
 func (service *Service) UserLogin(userName string, passworld string) (bool, string) {
   return false,""
