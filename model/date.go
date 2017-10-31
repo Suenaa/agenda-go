@@ -11,7 +11,7 @@ type Date struct {
 
 //the example of st: 2017-10-20T19:00
 func (date *Date) Init(st string) {
-	t, err := StringToDate(st)
+	t, err := time.Parse(time.RFC3339, st + ":00Z")
 	if err == nil {
 		date.Time = t
 	} else {
@@ -23,7 +23,7 @@ func (date Date) GetYear() int {
 	return date.Time.Year()
 }
 
-//month is like January, March and so on
+//month is like January, March and so on.
 func (date Date) GetMonth() string {
 	return date.Time.Month().String()
 }
@@ -57,6 +57,14 @@ func (date Date)DateToString() string {
 }
 
 //the example of string: 2017-10-20T19:00
-func StringToDate(date string) (time.Time, error) {
-	return time.Parse(time.RFC3339, date + ":00Z")
+//2000-01-01T00:00
+func StringToDate(st string) (Date) {
+	var date Date
+	t, err := time.Parse(time.RFC3339, st + ":00Z")
+	if err == nil {
+		date.Time = t
+	} else {
+		date.Init("2000-01-01T00:00") //if st is invalid date will be this
+	}
+	return date
 }
