@@ -25,7 +25,7 @@
 　　`agd cm -t title -p participator1 -p participator2 -s start -e end`
 
 - change the patricipators of a meeting                      
-　　add: `agd ap -t title -p name`
+　　add: `agd ap -t title -p name`                                   
 　　delete: `agd dp -t title -p name`
 
 - list meetings during a period                    
