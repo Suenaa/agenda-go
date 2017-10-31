@@ -8,6 +8,7 @@ import (
 	"github.com/Andiedie/agenda-go/service"
 	"github.com/Andiedie/agenda-go/tools"
 	"github.com/spf13/cobra"
+	logs "github.com/Suenaa/agenda-go/logs"
 )
 
 // apCmd represents the ap command
@@ -28,6 +29,7 @@ var apCmd = &cobra.Command{
 		for _, one := range participants {
 			if err := service.AddParticipator(title, one); err != nil {
 				noError = false
+				logs.Log(err)
 				fmt.Fprintln(os.Stderr, err)
 			}
 		}

@@ -3,8 +3,10 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"log"
 
 	"github.com/spf13/cobra"
+	logs "github.com/Suenaa/agenda-go/logs"
 )
 
 var cfgFile string
@@ -21,6 +23,7 @@ var RootCmd = &cobra.Command{
 func Execute() {
 	if err := RootCmd.Execute(); err != nil {
 		fmt.Println(err)
+		logs.Log(err)
 		os.Exit(1)
 	}
 }
