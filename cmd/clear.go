@@ -3,6 +3,8 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/Andiedie/agenda-go/service"
+	"github.com/Andiedie/agenda-go/tools"
 	"github.com/spf13/cobra"
 )
 
@@ -12,7 +14,11 @@ var clearCmd = &cobra.Command{
 	Short: "clear all meeting you create",
 	Long:  `clear all meeting you create`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("clear called")
+		if err := service.DeleteAllMeeting(); err == nil {
+			fmt.Println("Success")
+		} else {
+			tools.Report(err)
+		}
 	},
 }
 
