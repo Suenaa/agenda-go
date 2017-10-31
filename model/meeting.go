@@ -1,6 +1,9 @@
 package model
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 type Meeting struct {
 	Title string
@@ -45,7 +48,9 @@ func (meeting *Meeting) SetParticipators(participators []string) {
 }
 
 func (meeting Meeting) GetStart() string {
-	return meeting.Start
+	t, _ := time.Parse(time.RFC3339, meeting.Start + ":00Z")
+	start := t.String()[0 : 16]
+	return start
 }
 
 func (meeting *Meeting) SetStart(start string) {
@@ -53,7 +58,9 @@ func (meeting *Meeting) SetStart(start string) {
 }
 
 func (meeting Meeting) GetEnd() string {
-	return meeting.End
+	t, _ := time.Parse(time.RFC3339, meeting.End + ":00Z")
+	end := t.String()[0 : 16]
+	return end
 }
 
 func (meeting *Meeting) SetEnd(end string) {
@@ -101,13 +108,14 @@ func (meeting Meeting) GetParticipatorsLength() int {
 }
 
 func (meeting Meeting) String() {
-	fmt.Println("titile: " + meeting.GetTitle())
-	fmt.Println("sponsor: " + meeting.GetSponsor())
-	fmt.Println("time: " + meeting.GetStart() + "-" + meeting.GetEnd())
-	fmt.Print("participators: ")
+	fmt.Println(meeting.GetTitle())
+	fmt.Println("　- sponsor: " + meeting.GetSponsor())
+	fmt.Println("　- time: " + meeting.GetStart() + " - " + meeting.GetEnd())
+	fmt.Print("　- participators: ")
 	length := len(meeting.GetParticipators())
 	for i := 0; i < length - 1; i++ {
-		fmt.Print(meeting.GetParticipators()[i] + ",")
+		fmt.Print(meeting.GetParticipators()[i] + ", ")
 	}
 	fmt.Println(meeting.GetParticipators()[length - 1])
+	fmt.Println()
 }
