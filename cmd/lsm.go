@@ -1,8 +1,11 @@
 package cmd
 
 import (
+	"errors"
 	"fmt"
 
+	"github.com/Andiedie/agenda-go/service"
+	"github.com/Andiedie/agenda-go/tools"
 	"github.com/spf13/cobra"
 )
 
@@ -12,7 +15,21 @@ var lsmCmd = &cobra.Command{
 	Short: "list all meetings during a period",
 	Long:  `list all meetings during a period`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("lsm called")
+		start, _ := cmd.Flags().GetString("start")
+		end, _ := cmd.Flags().GetString("end")
+		if start == "" {
+			tools.Report(errors.New("start required"))
+		}
+		if end == "" {
+			tools.Report(errors.New("end required"))
+		}
+		meetings, err := service.QueryMeeting(start, end)
+		if err != nil {
+			tools.Report(err)
+		}
+		for m := range meetings {
+			fmt.Println(m)
+		}
 	},
 }
 
