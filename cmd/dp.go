@@ -1,8 +1,12 @@
 package cmd
 
 import (
+	"errors"
 	"fmt"
+	"os"
 
+	"github.com/Andiedie/agenda-go/service"
+	"github.com/Andiedie/agenda-go/tools"
 	"github.com/spf13/cobra"
 )
 
@@ -12,7 +16,24 @@ var dpCmd = &cobra.Command{
 	Short: "delete participants in a meeting",
 	Long:  `delete participants in a meeting`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("dp called")
+		title, _ := cmd.Flags().GetString("title")
+		participants, _ := cmd.Flags().GetStringSlice("participant")
+		if title == "" {
+			tools.Report(errors.New("title required"))
+		}
+		if participants == nil || len(participants) == 0 {
+			tools.Report(errors.New("participant(s) required"))
+		}
+		noError := true
+		for _, one := range participants {
+			if err := service.DeleteParticipator(title, one); err != nil {
+				noError = false
+				fmt.Fprintln(os.Stderr, err)
+			}
+		}
+		if noError {
+			fmt.Println("Success")
+		}
 	},
 }
 
