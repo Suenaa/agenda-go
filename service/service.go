@@ -34,7 +34,7 @@ func DeleteUser(password string) error {
 
 //CreateMeeting 创建会议
 func CreateMeeting(title string, startDate string,
-	endDate string, participators []model.User) error {
+	endDate string, participators []string) error {
 	return nil
 }
 
