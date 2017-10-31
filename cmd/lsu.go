@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/Andiedie/agenda-go/service"
 	"github.com/spf13/cobra"
 )
 
@@ -12,7 +13,10 @@ var lsuCmd = &cobra.Command{
 	Short: "list all users",
 	Long:  `list all users`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("lsu called")
+		users := service.QueryAllUsers()
+		for u := range users {
+			fmt.Println(u)
+		}
 	},
 }
 

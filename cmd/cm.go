@@ -1,6 +1,11 @@
 package cmd
 
 import (
+	"errors"
+	"fmt"
+
+	"github.com/Andiedie/agenda-go/service"
+	"github.com/Andiedie/agenda-go/tools"
 	"github.com/spf13/cobra"
 )
 
@@ -10,7 +15,28 @@ var cmCmd = &cobra.Command{
 	Short: "create a meeting",
 	Long:  `create a meeting`,
 	Run: func(cmd *cobra.Command, args []string) {
-
+		title, _ := cmd.Flags().GetString("title")
+		participants, _ := cmd.Flags().GetStringSlice("participant")
+		start, _ := cmd.Flags().GetString("start")
+		end, _ := cmd.Flags().GetString("end")
+		if title == "" {
+			tools.Report(errors.New("title required"))
+		}
+		if participants == nil || len(participants) == 0 {
+			tools.Report(errors.New("participant(s) required"))
+		}
+		if start == "" {
+			tools.Report(errors.New("start required"))
+		}
+		if end == "" {
+			tools.Report(errors.New("end required"))
+		}
+		err := service.CreateMeeting(title, start, end, participants)
+		if err == nil {
+			fmt.Println("Success")
+		} else {
+			tools.Report(err)
+		}
 	},
 }
 
