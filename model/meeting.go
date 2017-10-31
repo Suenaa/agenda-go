@@ -81,7 +81,7 @@ func (meeting *Meeting) AddParticipator(username string) bool {
 		return false
 	}
 	meeting.SetParticipators(append(meeting.GetParticipators(), username))
-	return false
+	return true
 }
 
 //bool好像该改成err
