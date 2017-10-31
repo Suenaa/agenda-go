@@ -6,36 +6,36 @@
 ## Usage
 　　`agd command`
 
-- regist
-　　`agd regist -u usernaeme -p password -e e-mail -t telephone`
+- regist       
+　　`agd regist -u usernaeme -p password -e e-mail -t telephone`     
 
-- login
+- login    
 　　`agd login -u username -p password`
 
-- logout
+- logout    
 　　`agd logout`
 
-- list all users
+- list all users    
 　　`agd lsu`
 
-- delete current account
+- delete current account         
 　　`agd del -p password`
 
-- create a meeting
+- create a meeting                      
 　　`agd cm -t title -p participator1 -p participator2 -s start -e end`
 
-- change the patricipators of a meeting
-　　add: `agd ap -t title -p name`
+- change the patricipators of a meeting                      
+　　add: `agd ap -t title -p name`                                   
 　　delete: `agd dp -t title -p name`
 
-- list meetings during a period
+- list meetings during a period                    
 　　`agd lsm -s start -e end`
 
-- cancel a meeting
+- cancel a meeting                      
 　　`agd cacel -t title`
 
-- quit a meeing
+- quit a meeing                   
 　　`agd quit -t title`
 
-- clear all meeting
+- clear all meeting                  
 　　`agd clear`
