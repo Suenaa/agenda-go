@@ -1,5 +1,6 @@
 package model
 
+import "fmt"
 
 type User struct {
 	Username string
@@ -8,7 +9,7 @@ type User struct {
 	Phone string
 }
 
-func (user *User) Init(name, psw, email, phone string) {
+func (user *User) Init(name string, psw string, email string, phone string) {
 	user.Username = name
 	user.Password = psw
 	user.Email = email
@@ -45,4 +46,8 @@ func (user User) GetPhone() string {
 
 func (user *User) SetPhone(phone string) {
 	user.Phone = phone
+}
+
+func (user User) String() {
+	fmt.Println(user.GetUsername + ", " + user.GetEmail + ", " + user.GetPhone)
 }

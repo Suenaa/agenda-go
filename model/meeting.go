@@ -1,5 +1,6 @@
 package model
 
+import "fmt"
 
 type Meeting struct {
 	Title string
@@ -9,12 +10,12 @@ type Meeting struct {
 	End string
 }
 
-//the example of start and end: 2017-10-20T19:00
+//the examples of start and end: 2017-10-20T19:00 2017-01-01T0:00
 func (meeting *Meeting) Init(title string, sponsor string, 
-	pariticipators []string, start string, end string) {
+	participators []string, start string, end string) {
 	meeting.Title = title
 	meeting.Sponsor = sponsor
-	meeting.Participators = pariticipators
+	meeting.Participators = participators
 	meeting.Start = start
 	meeting.End = end
 }
@@ -39,8 +40,8 @@ func (meeting Meeting) GetParticipators() []string {
 	return meeting.Participators
 }
 
-func (meeting *Meeting) SetParticipators(pariticipators []string) {
-	meeting.Participators = pariticipators
+func (meeting *Meeting) SetParticipators(participators []string) {
+	meeting.Participators = participators
 }
 
 func (meeting Meeting) GetStart() string {
@@ -97,4 +98,16 @@ func (meeting *Meeting) DeleteParticipator(username string) bool {
 
 func (meeting Meeting) GetParticipatorsLength() int {
 	return len(meeting.GetParticipators())
+}
+
+func (meeting Meeting) String() {
+	fmt.Println("titile: " + meeting.GetTitle())
+	fmt.Println("sponsor: " + meeting.GetSponsor())
+	fmt.Println("time: " + meeting.GetStart() + "-" + meeting.GetEnd())
+	fmt.Print("participators: ")
+	length := len(meeting.GetParticipators())
+	for i := 0; i < length - 1; i++ {
+		fmt.Print(meeting.GetParticipators()[i] + ",")
+	}
+	fmt.Println(meeting.GetParticipators()[length - 1])
 }
