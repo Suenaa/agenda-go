@@ -49,5 +49,5 @@ func (user *User) SetPhone(phone string) {
 }
 
 func (user User) String() {
-	fmt.Println(user.GetUsername + ", " + user.GetEmail + ", " + user.GetPhone)
+	fmt.Println(user.GetUsername() + ", " + user.GetEmail() + ", " + user.GetPhone())
 }
