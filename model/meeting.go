@@ -1,5 +1,9 @@
 package model
 
+import (
+	"fmt"
+	"time"
+)
 
 type Meeting struct {
 	Title string
@@ -9,12 +13,12 @@ type Meeting struct {
 	End string
 }
 
-//the example of start and end: 2017-10-20T19:00
+//the examples of start and end: 2017-10-20T19:00 2017-01-01T0:00
 func (meeting *Meeting) Init(title string, sponsor string, 
-	pariticipators []string, start string, end string) {
+	participators []string, start string, end string) {
 	meeting.Title = title
 	meeting.Sponsor = sponsor
-	meeting.Participators = pariticipators
+	meeting.Participators = participators
 	meeting.Start = start
 	meeting.End = end
 }
@@ -39,12 +43,14 @@ func (meeting Meeting) GetParticipators() []string {
 	return meeting.Participators
 }
 
-func (meeting *Meeting) SetParticipators(pariticipators []string) {
-	meeting.Participators = pariticipators
+func (meeting *Meeting) SetParticipators(participators []string) {
+	meeting.Participators = participators
 }
 
 func (meeting Meeting) GetStart() string {
-	return meeting.Start
+	t, _ := time.Parse(time.RFC3339, meeting.Start + ":00Z")
+	start := t.String()[0 : 16]
+	return start
 }
 
 func (meeting *Meeting) SetStart(start string) {
@@ -52,7 +58,9 @@ func (meeting *Meeting) SetStart(start string) {
 }
 
 func (meeting Meeting) GetEnd() string {
-	return meeting.End
+	t, _ := time.Parse(time.RFC3339, meeting.End + ":00Z")
+	end := t.String()[0 : 16]
+	return end
 }
 
 func (meeting *Meeting) SetEnd(end string) {
@@ -81,7 +89,7 @@ func (meeting *Meeting) AddParticipator(username string) bool {
 		return false
 	}
 	meeting.SetParticipators(append(meeting.GetParticipators(), username))
-	return false
+	return true
 }
 
 //bool好像该改成err
@@ -97,4 +105,17 @@ func (meeting *Meeting) DeleteParticipator(username string) bool {
 
 func (meeting Meeting) GetParticipatorsLength() int {
 	return len(meeting.GetParticipators())
+}
+
+func (meeting Meeting) String() {
+	fmt.Println(meeting.GetTitle())
+	fmt.Println("　- sponsor: " + meeting.GetSponsor())
+	fmt.Println("　- time: " + meeting.GetStart() + " - " + meeting.GetEnd())
+	fmt.Print("　- participators: ")
+	length := len(meeting.GetParticipators())
+	for i := 0; i < length - 1; i++ {
+		fmt.Print(meeting.GetParticipators()[i] + ", ")
+	}
+	fmt.Println(meeting.GetParticipators()[length - 1])
+	fmt.Println()
 }

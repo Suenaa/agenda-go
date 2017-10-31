@@ -49,8 +49,8 @@ func DeleteParticipator(title string, participator string) error {
 }
 
 //查询会议，通过开始时间和结束时间查询当前用户需要参加的所有会议
-func QueryMeeting(startDate string, endDate string) []model.Metting {
-  return []model.Meeting{}
+func QueryMeeting(startDate string, endDate string) ([]model.Metting, error) {
+  return []model.Meeting{},nil
 }
 
 //取消会议
