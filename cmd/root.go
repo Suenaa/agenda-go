@@ -3,7 +3,6 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"log"
 
 	"github.com/spf13/cobra"
 	"github.com/Suenaa/agenda-go/logs"

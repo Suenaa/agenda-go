@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Andiedie/agenda-go/service"
+	"github.com/Suenaa/agenda-go/service"
 	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
 	"github.com/Suenaa/agenda-go/logs"
@@ -29,7 +29,7 @@ var dpCmd = &cobra.Command{
 		for _, one := range participants {
 			if err := service.DeleteParticipator(title, one); err != nil {
 				noError = false
-				logs.Log(err)
+				logs.ErrLog(err)
 				fmt.Fprintln(os.Stderr, err)
 			}
 		}

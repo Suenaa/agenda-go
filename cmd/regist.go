@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/Andiedie/agenda-go/service"
+	"github.com/Suenaa/agenda-go/service"
 	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
 	"github.com/Suenaa/agenda-go/logs"

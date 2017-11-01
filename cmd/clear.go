@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/Andiedie/agenda-go/service"
+	"github.com/Suenaa/agenda-go/service"
 	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
 	"github.com/Suenaa/agenda-go/logs"
@@ -19,7 +19,7 @@ var clearCmd = &cobra.Command{
 			fmt.Println("Success")
 		} else {
 			tools.Report(err)
-			los.EventLog("clear all meetings")
+			logs.EventLog("clear all meetings")
 		}
 	},
 }

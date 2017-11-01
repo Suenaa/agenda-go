@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/Andiedie/agenda-go/service"
+	"github.com/Suenaa/agenda-go/service"
 	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
 	"github.com/Suenaa/agenda-go/logs"
@@ -28,7 +28,7 @@ var lsmCmd = &cobra.Command{
 		if err != nil {
 			tools.Report(err)
 		}
-		for m := range meetings {
+		for _, m := range meetings {
 			fmt.Println(m)
 		}
 		logs.EventLog("list meetings during " + start + " - " + end)
