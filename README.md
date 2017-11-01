@@ -1,11 +1,11 @@
 # Agenda
 
-contributors:                          
+## contributors:                          
 15331141 赖秀娜        
 15331176 李梓桥        
 15331435 周长安        
 
-## Usage
+## Usage                                
 　　`agd command`
 
 - regist       
@@ -41,6 +41,14 @@ contributors:
 
 - clear all meetings                  
 　　`agd clear`
+
+## log & date
+- logs                  
+　　where logs are stored
+
+- dates                           
+　　it stores dates of user, current user and meetings
+
 
 ## examples
 
