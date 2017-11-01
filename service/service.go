@@ -3,7 +3,7 @@ package service
 import (
   "errors"
   model "github.com/Andiedie/agenda-go/model"
-  storage "github.com/Andiedie/agenda-go/storage"
+  storage "github.com/Suenaa/agenda-go/storage"
 )
 
 //用户注册
