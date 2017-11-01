@@ -35,7 +35,7 @@ var registCmd = &cobra.Command{
 		err := service.UserRegister(username, password, email, phone)
 		if err == nil {
 			fmt.Println("Success")
-			logs.EventLog(username + "regists")
+			logs.EventLog(username + " regists")
 
 		} else {
 			tools.Report(err)

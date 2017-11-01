@@ -72,6 +72,7 @@ func DeleteUser(password string) error {
         if allUsers[i].GetPassword() == password {
           DeleteMeetingByUserName(currentUser)
           storage.DeleteUser(currentUser)
+          storage.SetCurrentUser("")
           return nil
         } else {
           return errors.New("incorrect password")
