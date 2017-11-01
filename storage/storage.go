@@ -12,12 +12,12 @@ import (
 func saveUser(users []model.User) {
 	jzon, err := json.Marshal(users)
 	tools.Report(err)
-	ioutil.WriteFile("./users.dat", jzon, 0644)
+	ioutil.WriteFile("dates/users.dat", jzon, 0644)
 }
 
 //readUser 读取所有用户
 func readUser() (res []model.User) {
-	content, err := ioutil.ReadFile("./users.dat")
+	content, err := ioutil.ReadFile("dates/users.dat")
 	if err != nil {
 		return []model.User{}
 	}
@@ -29,13 +29,13 @@ func readUser() (res []model.User) {
 func saveMeeting(meetings []model.Meeting) {
 	jzon, err := json.Marshal(meetings)
 	tools.Report(err)
-	err = ioutil.WriteFile("./meetings.dat", jzon, 0644)
+	err = ioutil.WriteFile("dates/meetings.dat", jzon, 0644)
 	tools.Report(err)
 }
 
 //readMeeting 读取所有会议
 func readMeeting() (res []model.Meeting) {
-	content, err := ioutil.ReadFile("./meetings.dat")
+	content, err := ioutil.ReadFile("dates/meetings.dat")
 	if err != nil {
 		return []model.Meeting{}
 	}
@@ -70,14 +70,14 @@ func DeleteUser(username string) {
 //SetCurrentUser 设置当前登录用户
 //空字符串表示 退出登录
 func SetCurrentUser(username string) {
-	err := ioutil.WriteFile("./current.dat", []byte(username), 0644)
+	err := ioutil.WriteFile("dates/current.dat", []byte(username), 0644)
 	tools.Report(err)
 }
 
 //GetCurrentUser 获取当前登录用户的用户名
 //空字符串表示 未登录
 func GetCurrentUser() string {
-	content, err := ioutil.ReadFile("./current.dat")
+	content, err := ioutil.ReadFile("dates/current.dat")
 	if err != nil {
 		return ""
 	}
