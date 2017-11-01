@@ -225,7 +225,7 @@ func QuitMeeting(title string) error {
   if (*tMeeting).IsSponsor(currentUser) {
     return errors.New("current user is the sponsor of the meeting, can't quit")
   }
-  if (*tMeeting).IsParticipator(currentUser) {
+  if !(*tMeeting).IsParticipator(currentUser) {
     return errors.New("the user is not participators")
   }
   (*tMeeting).DeleteParticipator(currentUser)
