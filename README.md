@@ -1,6 +1,6 @@
 # Agenda
 
-contributors:
+contributors:                          
 15331141 赖秀娜        
 15331176 李梓桥        
 15331435 周长安        
