@@ -222,6 +222,9 @@ func QuitMeeting(title string) error {
   if tMeeting == nil {
     return errors.New("the title not exist")
   }
+  if (*tMeeting).IsSponsor(currentUser) {
+    return errors.New("current user is the sponsor of the meeting, can't quit")
+  }
   if (*tMeeting).IsParticipator(currentUser) {
     return errors.New("the user is not participators")
   }
