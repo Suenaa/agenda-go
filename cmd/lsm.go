@@ -2,8 +2,7 @@ package cmd
 
 import (
 	"errors"
-	"fmt"
-
+	
 	"github.com/Suenaa/agenda-go/service"
 	"github.com/Suenaa/agenda-go/tools"
 	"github.com/Suenaa/agenda-go/model"

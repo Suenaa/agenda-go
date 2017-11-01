@@ -1,8 +1,6 @@
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/Suenaa/agenda-go/service"
 	"github.com/Suenaa/agenda-go/model"
 	"github.com/spf13/cobra"
