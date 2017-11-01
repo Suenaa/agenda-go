@@ -47,7 +47,7 @@ func (date Date)IsEqual(other Date) bool {
 }
 
 func (date Date)IsAfter(other Date) bool {
-	return date.Time.Before(other.Time)
+	return date.Time.After(other.Time)
 }
 
 //output is like: 2017-10-20 19:00
