@@ -2,7 +2,7 @@ package service
 
 import (
   "errors"
-  model "github.com/Andiedie/agenda-go/model"
+  model "github.com/Suenaa/agenda-go/model"
   storage "github.com/Suenaa/agenda-go/storage"
 )
 
