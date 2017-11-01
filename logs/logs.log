@@ -50,3 +50,25 @@ Did you mean this?
 [event]2017/11/01 16:17:15 quit meeting: title
 [event]2017/11/01 16:17:18 list meetings during 2017-11-01T0:00 - 2017-11-01T23:00
 [event]2017/11/01 16:19:27 list meetings during 2017-11-01T0:00 - 2017-11-01T23:00
+[event]2017/11/01 16:46:58 create a meeting: title
+[event]2017/11/01 16:47:08 create a meeting: title3
+[event]2017/11/01 16:47:38 list meetings during 2017-11-01T0:00 - 2017-11-01T23:00
+[error]2017/11/01 16:48:38 current user is the sponsor of the meeting, can't quit
+[event]2017/11/01 16:48:54 current user logs out
+[event]2017/11/01 16:49:37 user2 log in
+[error]2017/11/01 16:50:07 title aleardy exist
+[event]2017/11/01 16:50:14 create a meeting: title1
+[event]2017/11/01 16:50:33 list all users
+[error]2017/11/01 16:50:37 start required
+[event]2017/11/01 16:50:42 list meetings during 2017-11-01T0:00 - 2017-11-01T23:00
+[event]2017/11/01 16:55:02 create a meeting: title1
+[event]2017/11/01 16:55:17 create a meeting: title2
+[error]2017/11/01 16:55:37 title aleardy exist
+[error]2017/11/01 16:55:53 start required
+[event]2017/11/01 16:55:59 list meetings during 2017-11-01T0:00 - 2017-11-01T23:00
+[error]2017/11/01 16:56:43 current user is the sponsor of the meeting, can't quit
+[error]2017/11/01 16:56:52 the user is not participators
+[error]2017/11/01 16:59:11 start required
+[event]2017/11/01 16:59:16 list meetings during 2017-11-01T0:00 - 2017-11-01T23:00
+[event]2017/11/01 16:59:24 quit meeting: title3
+[event]2017/11/01 16:59:28 list meetings during 2017-11-01T0:00 - 2017-11-01T23:00
