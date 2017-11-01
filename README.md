@@ -183,7 +183,39 @@ title2
 
 - quit a meeting
 ```
+./agd lsm -s 2017-11-01T0:00 -e 2017-11-01T23:00
+title3
+　- sponsor: user3
+　- time: 2017-11-01 11:00 - 2017-11-01 11:30
+　- participators: user2
 
+title1
+　- sponsor: user2
+　- time: 2017-11-01 13:00 - 2017-11-01 15:30
+　- participators: user1, user3
+
+title2
+　- sponsor: user2
+　- time: 2017-11-01 13:00 - 2017-11-01 15:30
+　- participators: user1
+
+
+./agd quit -t title1
+current user is the sponsor of the meeting, can't quit
+
+./agd quit -t title3
+Success
+
+./agd lsm -s 2017-11-01T0:00 -e 2017-11-01T23:00
+title1
+　- sponsor: user2
+　- time: 2017-11-01 13:00 - 2017-11-01 15:30
+　- participators: user1, user3
+
+title2
+　- sponsor: user2
+　- time: 2017-11-01 13:00 - 2017-11-01 15:30
+　- participators: user1
 
 ```
 
