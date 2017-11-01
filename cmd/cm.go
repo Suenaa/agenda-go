@@ -5,8 +5,9 @@ import (
 	"fmt"
 
 	"github.com/Andiedie/agenda-go/service"
-	"github.com/Andiedie/agenda-go/tools"
+	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
+	"github.com/Suenaa/agenda-go/logs"
 )
 
 // cmCmd represents the cm command
@@ -34,6 +35,7 @@ var cmCmd = &cobra.Command{
 		err := service.CreateMeeting(title, start, end, participants)
 		if err == nil {
 			fmt.Println("Success")
+			logs.EventLog("create a meeting: " + title)
 		} else {
 			tools.Report(err)
 		}

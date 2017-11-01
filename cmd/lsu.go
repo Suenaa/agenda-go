@@ -5,6 +5,7 @@ import (
 
 	"github.com/Andiedie/agenda-go/service"
 	"github.com/spf13/cobra"
+	"github.com/Suenaa/agenda-go/logs"
 )
 
 // lsuCmd represents the lsu command
@@ -17,6 +18,7 @@ var lsuCmd = &cobra.Command{
 		for u := range users {
 			fmt.Println(u)
 		}
+		logs.EventLog("list all users")
 	},
 }
 

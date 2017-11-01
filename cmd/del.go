@@ -5,8 +5,9 @@ import (
 	"fmt"
 
 	"github.com/Andiedie/agenda-go/service"
-	"github.com/Andiedie/agenda-go/tools"
+	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
+	"github.com/Suenaa/agenda-go/logs"
 )
 
 // delCmd represents the del command
@@ -21,6 +22,7 @@ var delCmd = &cobra.Command{
 		}
 		if err := service.DeleteUser(password); err == nil {
 			fmt.Println("Success")
+			logs.EventLog("delete a user")
 		} else {
 			tools.Report(err)
 		}

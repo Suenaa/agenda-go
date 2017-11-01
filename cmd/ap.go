@@ -6,9 +6,9 @@ import (
 	"os"
 
 	"github.com/Andiedie/agenda-go/service"
-	"github.com/Andiedie/agenda-go/tools"
+	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
-	logs "github.com/Suenaa/agenda-go/logs"
+	"github.com/Suenaa/agenda-go/logs"
 )
 
 // apCmd represents the ap command
@@ -29,12 +29,13 @@ var apCmd = &cobra.Command{
 		for _, one := range participants {
 			if err := service.AddParticipator(title, one); err != nil {
 				noError = false
-				logs.Log(err)
+				logs.ErrLog(err)
 				fmt.Fprintln(os.Stderr, err)
 			}
 		}
 		if noError {
 			fmt.Println("Success")
+			logs.EventLog("add participant(s) to the meeting: " + title)
 		}
 	},
 }

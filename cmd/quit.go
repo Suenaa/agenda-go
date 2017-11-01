@@ -5,8 +5,9 @@ import (
 	"fmt"
 
 	"github.com/Andiedie/agenda-go/service"
-	"github.com/Andiedie/agenda-go/tools"
+	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
+	"github.com/Suenaa/agenda-go/logs"
 )
 
 // quitCmd represents the quit command
@@ -22,6 +23,7 @@ var quitCmd = &cobra.Command{
 		err := service.QuitMeeting(title)
 		if err == nil {
 			fmt.Println("Success")
+			logs.EventLog("quit meeting: " + title)
 		} else {
 			tools.Report(err)
 		}

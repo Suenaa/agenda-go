@@ -5,8 +5,9 @@ import (
 	"fmt"
 
 	"github.com/Andiedie/agenda-go/service"
-	"github.com/Andiedie/agenda-go/tools"
+	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
+	"github.com/Suenaa/agenda-go/logs"
 )
 
 // registCmd represents the regist command
@@ -34,6 +35,8 @@ var registCmd = &cobra.Command{
 		err := service.UserRegister(username, password, email, phone)
 		if err == nil {
 			fmt.Println("Success")
+			logs.EventLog(username + "regists")
+
 		} else {
 			tools.Report(err)
 		}

@@ -6,9 +6,9 @@ import (
 	"os"
 
 	"github.com/Andiedie/agenda-go/service"
-	"github.com/Andiedie/agenda-go/tools"
+	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
-	logs "github.com/Suenaa/agenda-go/logs"
+	"github.com/Suenaa/agenda-go/logs"
 )
 
 // dpCmd represents the dp command
@@ -35,6 +35,7 @@ var dpCmd = &cobra.Command{
 		}
 		if noError {
 			fmt.Println("Success")
+			logs.EventLog("delete participant(s) in the meeting: " + title)
 		}
 	},
 }

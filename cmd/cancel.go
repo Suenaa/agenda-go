@@ -5,8 +5,9 @@ import (
 	"fmt"
 
 	"github.com/Andiedie/agenda-go/service"
-	"github.com/Andiedie/agenda-go/tools"
+	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
+	"github.com/Suenaa/agenda-go/logs"
 )
 
 // cancelCmd represents the cancel command
@@ -21,6 +22,7 @@ var cancelCmd = &cobra.Command{
 		}
 		if err := service.DeleteMeeting(title); err == nil {
 			fmt.Println("Success")
+			logs.EventLog("cancel a meeting: " + title)
 		} else {
 			tools.Report(err)
 		}

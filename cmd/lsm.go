@@ -5,8 +5,9 @@ import (
 	"fmt"
 
 	"github.com/Andiedie/agenda-go/service"
-	"github.com/Andiedie/agenda-go/tools"
+	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
+	"github.com/Suenaa/agenda-go/logs"
 )
 
 // lsmCmd represents the lsm command
@@ -30,6 +31,7 @@ var lsmCmd = &cobra.Command{
 		for m := range meetings {
 			fmt.Println(m)
 		}
+		logs.EventLog("list meetings during " + start + " - " + end)
 	},
 }
 

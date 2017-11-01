@@ -4,8 +4,9 @@ import (
 	"fmt"
 
 	"github.com/Andiedie/agenda-go/service"
-	"github.com/Andiedie/agenda-go/tools"
+	"github.com/Suenaa/agenda-go/tools"
 	"github.com/spf13/cobra"
+	"github.com/Suenaa/agenda-go/logs"
 )
 
 // logoutCmd represents the logout command
@@ -16,6 +17,7 @@ var logoutCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		if err := service.UserLogout(); err == nil {
 			fmt.Println("Success")
+			logs.EventLog("user log out")
 		} else {
 			tools.Report(err)
 		}
