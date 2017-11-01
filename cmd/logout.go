@@ -17,7 +17,7 @@ var logoutCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		if err := service.UserLogout(); err == nil {
 			fmt.Println("Success")
-			logs.EventLog("user log out")
+			logs.EventLog("current user logs out")
 		} else {
 			tools.Report(err)
 		}
