@@ -42,12 +42,12 @@
 - clear all meetings                  
 　　`agd clear`
 
-## log & date
+## log & data
 - logs                  
 　　where logs are stored
 
 - dates                           
-　　it stores dates of user, current user and meetings
+　　it stores datas of users, current user and meetings
 
 
 ## examples
